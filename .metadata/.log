@@ -1,0 +1,19 @@
+!SESSION 2018-06-06 15:32:13.105 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.osgi 2 1 2018-06-06 15:33:44.931
+!MESSAGE NLS unused message: bensonMonitor_build_error in: com.sonatype.buildserver.eclipse.ui.messages
+
+!ENTRY org.eclipse.osgi 2 1 2018-06-06 15:33:44.973
+!MESSAGE NLS unused message: bensonMonitor_unknown_build_error in: com.sonatype.buildserver.eclipse.ui.messages
+
+!ENTRY org.eclipse.osgi 2 1 2018-06-06 15:33:44.973
+!MESSAGE NLS missing message: hudsonMonitor_build_error in: com.sonatype.buildserver.eclipse.ui.messages
+
+!ENTRY org.eclipse.osgi 2 1 2018-06-06 15:33:44.973
+!MESSAGE NLS missing message: hudsonMonitor_unknown_build_error in: com.sonatype.buildserver.eclipse.ui.messages

@@ -2,7 +2,9 @@ package com.crossover.techtrial.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -32,6 +35,7 @@ public class HourlyElectricity implements Serializable {
   
   @JsonIgnore
   @ManyToOne
+  @NotNull
   @JoinColumn(name = "panel_id", referencedColumnName = "id")
   Panel panel;
   
@@ -71,6 +75,10 @@ public class HourlyElectricity implements Serializable {
 
   public void setReadingAt(LocalDateTime readingAt) {
     this.readingAt = readingAt;
+  }
+
+  public void setReadingAt(String readingAt) {
+    this.readingAt = LocalDateTime.parse(readingAt, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
   }
 
   /* (non-Javadoc)

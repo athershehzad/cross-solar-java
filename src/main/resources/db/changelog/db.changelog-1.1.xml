@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <changeSet author="AB" id="alter_data_table">
+        <addColumn schemaName="crosssolar"
+                    tableName="panel">
+             <column name="registration_date" type="timestamp" defaultValueDate="${now}"/>
+         </addColumn>
+        <modifyDataType columnName="latitude"
+                        newDataType="DOUBLE(9,7)"
+                        schemaName="crosssolar"
+                        tableName="panel"/>
+        <modifyDataType columnName="longitude"
+                        newDataType="DOUBLE(10,7)"
+                        schemaName="crosssolar"
+                        tableName="panel"/>
+    </changeSet>
+
+    <changeSet author="AB" id="add_Foreign_Key_Constraint">
+        <addForeignKeyConstraint baseColumnNames="panel_id"
+                                 baseTableName="hourly_electricity"
+                                 constraintName="fk_panel_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="panel"/>
+    </changeSet>
+
+    <changeSet author="AB" id="add_Unique_Constraint">
+        <addUniqueConstraint columnNames="serial"
+                             constraintName="unique_serial"
+                             schemaName="crosssolar"
+                             tableName="panel"/>
+    </changeSet>
+</databaseChangeLog>
